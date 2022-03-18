@@ -3,7 +3,7 @@ WORKDIR /usr/src/demo
 COPY . .
 RUN cargo build --release
 
-FROM debian:bullseye-slim
+FROM debian:11-slim
 WORKDIR /usr/src/demo
 COPY --from=builder /usr/src/demo/target/release/ocidemo /usr/local/bin
 ENTRYPOINT ["ocidemo"]
